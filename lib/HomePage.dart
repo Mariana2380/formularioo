@@ -9,7 +9,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  final _Formkey = GlobalKey<FormState>();
+  final _formkey = GlobalKey<FormState>();
   final _txtidentificacion = TextEditingController();
   final _txtnombre = TextEditingController();
   final _txttelefono = TextEditingController();
@@ -32,7 +32,7 @@ class _HomepageState extends State<Homepage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
-          key: _Formkey,
+          key: _formkey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -56,6 +56,7 @@ class _HomepageState extends State<Homepage> {
                     if (value == null || value.isEmpty) {
                       return "La identificación es obligatoria";
                     }
+                    return null;
                   },
                 ),
               ),
@@ -78,6 +79,7 @@ class _HomepageState extends State<Homepage> {
                     if (value == null || value.isEmpty) {
                       return "El nombre es obligatorio";
                     }
+                    return null;
                   },
                 ),
               ),
@@ -128,6 +130,7 @@ class _HomepageState extends State<Homepage> {
                     if (value.length < 10) {
                       return "El número de celular debe tener 10 digitos";
                     }
+                    return null;
                   },
                 ),
               ),
@@ -150,6 +153,7 @@ class _HomepageState extends State<Homepage> {
                     if (!_emailRegex.hasMatch(value)) {
                       return 'Formato de correo no válido';
                     }
+                    return null;
                   },
                 ),
               ),
@@ -158,7 +162,7 @@ class _HomepageState extends State<Homepage> {
                 child: ElevatedButton.icon(
                   icon: Icon(Icons.save),
                   onPressed: () {
-                    final esValido = _Formkey.currentState!.validate();
+                    final esValido = _formkey.currentState!.validate();
                     if (!esValido) {
                       return; // Hay errores: los mensajes se muestran debajo de los campos
                     }
