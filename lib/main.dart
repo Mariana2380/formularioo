@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formularioo/HomePage.dart';
+import 'package:formularioo/homepage.dart';
 
 class Principal extends StatefulWidget {
   const Principal({super.key});
