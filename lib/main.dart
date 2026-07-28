@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:formularioo/homepage.dart';
 
+void main() {
+  runApp(const Principal());
+}
+
 class Principal extends StatelessWidget {
   const Principal({super.key});
 
